@@ -3,6 +3,8 @@ import { useParams } from "react-router-dom";
 import { Employee } from "../../services/employees-service";
 import { EmployeeInfo } from "../../App";
 import { useForm } from "react-hook-form";
+import Input from "../../components/Form/Input/Input";
+import Radio from "../../components/Form/Radio/Radio";
 export interface FormData {
   firstName: string;
   middleName: string;
@@ -81,60 +83,68 @@ const EmployeePage = () => {
       <div>
         <h1>Personal Information</h1>
       </div>
-      <div>
-        <label htmlFor="firstName">First name</label>
-        <input type="text" id="firstName" {...register("firstName")} />
-        {errors.firstName && <p>{errors.firstName.message}</p>}
-      </div>
-      <div>
-        <label htmlFor="middleName">Middle name (if applicable)</label>
-        <input type="text" id="middleName" {...register("middleName")} />
-        {errors.middleName && <p>{errors.middleName.message}</p>}
-      </div>
-      <div>
-        <label htmlFor="lastName">Last name</label>
-        <input type="text" id="lastName" {...register("lastName")} />
-        {errors.lastName && <p>{errors.lastName.message}</p>}
-      </div>
+      <Input
+        name="firstName"
+        label="First name"
+        id="firstName"
+        register={register}
+        errors={errors}
+      />
+      <Input
+        name="middleName"
+        label="Middle name (if applicable)"
+        id="middleName"
+        register={register}
+        errors={errors}
+      />
+      <Input
+        name="lastName"
+        label="Last name"
+        id="lastName"
+        register={register}
+        errors={errors}
+      />
       <div>Contact details</div>
-      <div>
-        <label htmlFor="email">Email address</label>
-        <input type="text" id="email" {...register("email")} />
-        {errors.email && <p>{errors.email.message}</p>}
-      </div>
-      <div>
-        <label htmlFor="phone">Mobile number</label>
-        <input type="text" id="phone" {...register("phone")} />
-        {errors.phone && <p>{errors.phone.message}</p>}
-      </div>
-      <div>
-        <label htmlFor="address">Residential address</label>
-        <input type="text" id="address" {...register("address")} />
-        {errors.address && <p>{errors.address.message}</p>}
-      </div>
+      <Input
+        name="email"
+        label="Email address"
+        id="email"
+        register={register}
+        errors={errors}
+      />
+      <Input
+        name="phone"
+        label="Mobile number"
+        id="phone"
+        register={register}
+        errors={errors}
+      />
+      <Input
+        name="address"
+        label="Residential address"
+        id="address"
+        register={register}
+        errors={errors}
+      />
       <div>Employee status</div>
       <div>
         <div>What is contract type?</div>
-        <div>
-          <input
-            type="radio"
-            id="permanent"
-            {...register("type")}
-            value="permanent"
-          />
-          <label htmlFor="type">Permanent</label>
-          {errors.type && <p>{errors.type.message}</p>}
-        </div>
-        <div>
-          <input
-            type="radio"
-            id="contract"
-            {...register("type")}
-            value="contract"
-          />
-          <label htmlFor="type">Contract</label>
-          {errors.type && <p>{errors.type.message}</p>}
-        </div>
+        <Radio
+          name="type"
+          label="Permanent"
+          id="permanent"
+          value="permanent"
+          register={register}
+          errors={errors}
+        />
+        <Radio
+          name="type"
+          label="Contract"
+          id="contract"
+          value="contract"
+          register={register}
+          errors={errors}
+        />
       </div>
 
       <div>

@@ -11,17 +11,27 @@ export interface FormData {
   phone: string;
   address: string;
   type: string;
-  startDate: string;
-  finishDate: string;
-  isFulltime: boolean;
+  startDate: {
+    day: string;
+    month: string;
+    year: string;
+  };
+  finishDate: {
+    day: string;
+    month: string;
+    year: string;
+  };
+  onGoing: string;
+  basis: string;
+  hoursPerWeek: string;
 }
 const EmployeePage = () => {
   const { id } = useParams();
-  const [employee, setEmployee] = useState<FormData>();
+  const [employee, setEmployee] = useState<EmployeeInfo>();
   useEffect(() => {
     if (id) {
       const employee = Employee.getEmployeeById(parseInt(id));
-      delete (employee as { id?: number }).id;
+      // delete (employee as { id?: number }).id;
       setEmployee(employee);
     }
   }, []);
@@ -38,10 +48,20 @@ const EmployeePage = () => {
       email: "",
       phone: "",
       address: "",
-      type: "",
-      startDate: "",
-      finishDate: "",
-      isFulltime: true,
+      type: "permanent",
+      startDate: {
+        day: "",
+        month: "",
+        year: "",
+      },
+      finishDate: {
+        day: "",
+        month: "",
+        year: "",
+      },
+      onGoing: "false",
+      basis: "fulltime",
+      hoursPerWeek: "",
     },
     mode: "all",
   });
@@ -51,8 +71,13 @@ const EmployeePage = () => {
       reset(employee);
     }
   }, [employee]);
+
+  const formSubmit = (data: FormData) => {
+    console.log(data);
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit(formSubmit)}>
       <div>
         <h1>Personal Information</h1>
       </div>
@@ -89,26 +114,109 @@ const EmployeePage = () => {
       </div>
       <div>Employee status</div>
       <div>
-        <label htmlFor="type">What is contract type?</label>
-        <input type="text" id="type" {...register("type")} />
-        {errors.type && <p>{errors.type.message}</p>}
+        <div>What is contract type?</div>
+        <div>
+          <input
+            type="radio"
+            id="permanent"
+            {...register("type")}
+            value="permanent"
+          />
+          <label htmlFor="type">Permanent</label>
+          {errors.type && <p>{errors.type.message}</p>}
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="contract"
+            {...register("type")}
+            value="contract"
+          />
+          <label htmlFor="type">Contract</label>
+          {errors.type && <p>{errors.type.message}</p>}
+        </div>
+      </div>
+
+      <div>
+        <div>Start date</div>
+        <div>
+          <label htmlFor="startDay">Day</label>
+          <input type="text" id="startDay" {...register("startDate.day")} />
+          {errors.startDate?.day && <p>{errors.startDate.day.message}</p>}
+        </div>
+        <div>
+          <label htmlFor="startMonth">Month</label>
+          <input type="text" id="startMonth" {...register("startDate.month")} />
+          {errors.startDate?.month && <p>{errors.startDate.month.message}</p>}
+        </div>
+        <div>
+          <label htmlFor="startYear">Year</label>
+          <input type="text" id="startYear" {...register("startDate.year")} />
+          {errors.startDate?.year && <p>{errors.startDate.year.message}</p>}
+        </div>
       </div>
       <div>
-        <label htmlFor="startDate">Start date</label>
-        <input type="text" id="startDate" {...register("startDate")} />
-        {errors.startDate && <p>{errors.startDate.message}</p>}
+        <div>Finish date</div>
+        <div>
+          <label htmlFor="finishDay">Day</label>
+          <input type="text" id="finishDay" {...register("finishDate.day")} />
+          {errors.finishDate?.day && <p>{errors.finishDate.day.message}</p>}
+        </div>
+        <div>
+          <label htmlFor="finishMonth">Month</label>
+          <input
+            type="text"
+            id="finishMonth"
+            {...register("finishDate.month")}
+          />
+          {errors.finishDate?.month && <p>{errors.finishDate.month.message}</p>}
+        </div>
+        <div>
+          <label htmlFor="finishYear">Year</label>
+          <input type="text" id="finishYear" {...register("finishDate.year")} />
+          {errors.finishDate?.year && <p>{errors.finishDate.year.message}</p>}
+        </div>
       </div>
       <div>
-        <label htmlFor="finishDate">Finish date</label>
-        <input type="text" id="finishDate" {...register("finishDate")} />
+        <input
+          type="checkbox"
+          id="onGoing"
+          {...register("onGoing")}
+          value="true"
+        />
+        <label htmlFor="onGoing">On going</label>
         {errors.finishDate && <p>{errors.finishDate.message}</p>}
       </div>
       <div>
-        <label htmlFor="isFulltime">
-          Is this on a full-time or part-time basis
-        </label>
-        <input type="text" id="isFulltime" {...register("isFulltime")} />
-        {errors.isFulltime && <p>{errors.isFulltime.message}</p>}
+        <div>Is this on a full-time or part-time basis?</div>
+        <div>
+          <input
+            type="radio"
+            id="fulltime"
+            {...register("basis")}
+            value="fulltime"
+          />
+          <label htmlFor="type">Full-time</label>
+          {errors.type && <p>{errors.type.message}</p>}
+        </div>
+        <div>
+          <input
+            type="radio"
+            id="parttime"
+            {...register("basis")}
+            value="parttime"
+          />
+          <label htmlFor="type">Part-time</label>
+          {errors.type && <p>{errors.type.message}</p>}
+        </div>
+      </div>
+      <div>
+        <label htmlFor="hoursPerWeek">Hours per week</label>
+        <input type="text" id="hoursPerWeek" {...register("hoursPerWeek")} />
+        {errors.hoursPerWeek && <p>{errors.hoursPerWeek.message}</p>}
+      </div>
+      <div>
+        <button>Save</button>
       </div>
     </form>
   );

@@ -1,54 +1,94 @@
 [
   {
-    "id":1,
+    "id": 1,
     "firstName": "John",
     "lastName": "Smith",
-    "type": "Contract",
+    "type": "contract",
     "email": "john.smith@email.com",
     "middleName": "",
     "phone": "12345678",
     "address": "123 street, NSW 2000",
-    "startDate": "28/07/2021",
-    "finishDate": "",
-    "isFulltime": true   
+    "startDate": {
+      "day": "28",
+      "month": "07",
+      "year": "2021"
+    },
+    "finishDate": {
+      "day": "20",
+      "month": "01",
+      "year": "2023"
+    },
+    "onGoing": "",
+    "basis": "fulltime",
+    "hoursPerWeek": "38"
   },
   {
     "id": 2,
     "firstName": "Tessa",
     "lastName": "Antonia",
-    "type": "Permanent",
+    "type": "permanent",
     "email": "tessa.antonia@email.com",
     "middleName": "Mary",
     "phone": "13894749",
     "address": "314 street, NSW 2000",
-    "startDate": "01/02/2009",
-    "finishDate": "",
-    "isFulltime": true
+    "startDate": {
+      "day": "01",
+      "month": "02",
+      "year": "2009"
+    },
+    "finishDate": {
+      "day": "",
+      "month": "",
+      "year": ""
+    },
+    "onGoing": "true",
+    "basis": "fulltime",
+    "hoursPerWeek": "38"
   },
   {
     "id": 3,
     "firstName": "Colene",
     "lastName": "Piers",
-    "type": "Permanent",
+    "type": "permanent",
     "email": "colene.piers@email.com",
     "middleName": "",
     "phone": "8419880",
     "address": "52 street, NSW 2000",
-    "startDate": "11/12/2019",
-    "finishDate": "",
-    "isFulltime": false
+    "startDate": {
+      "day": "23",
+      "month": "08",
+      "year": "2020"
+    },
+    "finishDate": {
+      "day": "",
+      "month": "",
+      "year": ""
+    },
+    "onGoing": "true",
+    "basis": "parttime",
+    "hoursPerWeek": "20"
   },
   {
     "id": 4,
     "firstName": "Bob",
     "lastName": "Kaison",
-    "type": "Contract",
+    "type": "contract",
     "email": "bob.kaison@email.com",
     "middleName": "Michael",
     "phone": "8098412124",
     "address": "42 street, NSW 2000",
-    "startDate": "31/03/2015",
-    "finishDate": "",
-    "isFulltime": true
+    "startDate": {
+      "day": "01",
+      "month": "10",
+      "year": "2012"
+    },
+    "finishDate": {
+      "day": "",
+      "month": "",
+      "year": ""
+    },
+    "onGoing": "true",
+    "basis": "parttime",
+    "hoursPerWeek": "24"
   }
 ]

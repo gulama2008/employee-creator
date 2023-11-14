@@ -5,6 +5,9 @@ import { EmployeeInfo } from "../../App";
 import { useForm } from "react-hook-form";
 import InputText from "../../components/Form/InputText/InputText";
 import RadioAndCheckBox from "../../components/Form/RadioAndCheckBox/RadioAndCheckBox";
+import Select from "../../components/Form/Select/Select";
+import months from "../../data/months.json";
+import monthsText from '../../data/months-text.json'
 export interface FormData {
   firstName: string;
   middleName: string;
@@ -158,9 +161,11 @@ const EmployeePage = () => {
           register={register}
           errors={errors}
         />
-        <InputText
-          name="startDate.month"
+        <Select
           label="Month"
+          name="startDate.month"
+          values={months}
+          text={monthsText}
           id="startMonth"
           register={register}
           errors={errors}
@@ -182,9 +187,11 @@ const EmployeePage = () => {
           register={register}
           errors={errors}
         />
-        <InputText
-          name="finishDate.month"
+        <Select
           label="Month"
+          name="finishDate.month"
+          values={months}
+          text={monthsText}
           id="finishMonth"
           register={register}
           errors={errors}

@@ -6,7 +6,7 @@ export interface TextInputProps{
     errors: any;
 }
 
-const Input = ({ name, label, id, register, errors }:TextInputProps) => {
+const InputText = ({ name, label, id, register, errors }:TextInputProps) => {
   return (
     <div>
       <label htmlFor={name}>{label}</label>
@@ -16,4 +16,4 @@ const Input = ({ name, label, id, register, errors }:TextInputProps) => {
   );
 };
 
-export default Input
+export default InputText

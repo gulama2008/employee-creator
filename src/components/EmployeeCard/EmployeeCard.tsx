@@ -18,7 +18,7 @@ const EmployeeCard = ({ employee }: EmployeeCardProps) => {
                   <a href="">Remove</a>
               </div>
           </div>
-          <p>{employee.type} - {(new Date()).getFullYear()-Utils.dateParser(employee.startDate).getFullYear()}yrs</p>
+          <p>{employee.type} - {(new Date()).getFullYear()-parseInt(employee.startDate.year)}yrs</p>
           <p>{ employee.email}</p>
     </div>
   )

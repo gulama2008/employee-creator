@@ -9,8 +9,10 @@ export class Employee {
     return employeeArray;
   }
 
-  public static getEmployeeById(id: number) {
-    const employee = employees.find((employee) => employee.id === id);
-    return employee;
+  public static async getEmployeeById(id: number):Promise<EmployeeInfo> {
+    const data = await instance.get(`/employees/${id}`);
+    console.log(data);
+    
+    return data.data;
   }
 }

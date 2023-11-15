@@ -4,6 +4,7 @@ import { Employee } from "../../services/employees-service";
 import { EmployeeInfo } from "../../App";
 import { useForm } from "react-hook-form";
 import PersonalDetailsForm from "../PersonalDetailsForm/PersonalDetailsForm";
+import { useQuery } from "react-query";
 export interface FormData {
   firstName: string;
   middleName: string;
@@ -23,20 +24,17 @@ export interface FormData {
   hoursPerWeek: string;
 }
 const EmployeePage = () => {
-  const { id } = useParams();
-  const [employee, setEmployee] = useState<EmployeeInfo>();
-  useEffect(() => {
-    if (id) {
-      const employee = Employee.getEmployeeById(parseInt(id));
-      // delete (employee as { id?: number }).id;
-      setEmployee(employee);
-    }
-  }, []);
+  // const { id } = useParams();
+  let id: string = useParams().id!;
+
+  const { isLoading, isError, data, error } = useQuery(
+    ["employeeData", id],
+    () => Employee.getEmployeeById(parseInt(id))
+  );
   const {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({
     defaultValues: {
       firstName: "",
@@ -56,14 +54,15 @@ const EmployeePage = () => {
       basis: "fulltime",
       hoursPerWeek: "",
     },
+    values: data,
     mode: "all",
   });
-
-  useEffect(() => {
-    if (employee) {
-      reset(employee);
-    }
-  }, [employee]);
+  if (isLoading) {
+    return <span>Loading...</span>;
+  }
+  if (isError) {
+    if (error instanceof Error) return <span>Error:{error.message}</span>;
+  }
 
   const formSubmit = (data: FormData) => {
     console.log(data);

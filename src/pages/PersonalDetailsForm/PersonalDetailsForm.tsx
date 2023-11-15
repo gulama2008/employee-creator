@@ -91,7 +91,7 @@ const PersonalDetailsForm = ({
       <div>
         <div>Start date</div>
         <InputText
-          name="startDate.day"
+          name="startDateDay"
           label="Day"
           id="startDay"
           register={register}
@@ -99,7 +99,7 @@ const PersonalDetailsForm = ({
         />
         <Select
           label="Month"
-          name="startDate.month"
+          name="startDateMonth"
           values={months}
           text={monthsText}
           id="startMonth"
@@ -107,7 +107,7 @@ const PersonalDetailsForm = ({
           errors={errors}
         />
         <InputText
-          name="startDate.year"
+          name="startDateYear"
           label="Year"
           id="startYear"
           register={register}
@@ -117,7 +117,7 @@ const PersonalDetailsForm = ({
       <div>
         <div>Finish date</div>
         <InputText
-          name="finishDate.day"
+          name="finishDateDay"
           label="Day"
           id="finishDay"
           register={register}
@@ -125,7 +125,7 @@ const PersonalDetailsForm = ({
         />
         <Select
           label="Month"
-          name="finishDate.month"
+          name="finishDateMonth"
           values={months}
           text={monthsText}
           id="finishMonth"
@@ -133,7 +133,7 @@ const PersonalDetailsForm = ({
           errors={errors}
         />
         <InputText
-          name="finishDate.year"
+          name="finishDateYear"
           label="Year"
           id="finishYear"
           register={register}

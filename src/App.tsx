@@ -5,7 +5,7 @@ import EmployeePage from "./pages/EmployeePage/EmployeePage";
 import NewEmployeePage from "./pages/NewEmployeePage/NewEmployeePage";
 import { Employee } from "./services/employees-service";
 import { useEffect, useState } from "react";
-
+import { QueryClient,QueryClientProvider,useQuery,useMutation } from "react-query";
 export interface EmployeeInfo {
   id: number;
   firstName: string;
@@ -15,44 +15,42 @@ export interface EmployeeInfo {
   phone: string;
   address: string;
   type: string;
-  startDate: {
-    day: string;
-    month: string;
-    year: string;
-  };
-  finishDate: {
-    day: string;
-    month: string;
-    year: string;
-  };
+  startDateDay: string;
+  startDateMonth: string;
+  startDateYear: string;
+  finishDateDay: string;
+  finishDateMonth: string;
+  finishDateYear: string;
   onGoing: string;
   basis: string;
   hoursPerWeek: string;
 }
 
+const queryClient = new QueryClient();
+
 function App() {
-  const [employees, setEmployees] = useState<EmployeeInfo[]>([]);
+  // const [employees, setEmployees] = useState<any>([]);
+//   useEffect(() => {
+//     const data = Employee.get();
+// console.log(data);
 
-  useEffect(() => {
-    const data = Employee.get();
-    console.log(data);
-
-    setEmployees(data);
-  }, []);
-  console.log(employees);
+//     setEmployees(data);
+//   }, []);
 
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route
-          path="/employees"
-          element={<EmployeesPage employees={employees} />}
-        />
-        <Route path="/employees/:id" element={<EmployeePage />} />
-        <Route path="/employees/new" element={<NewEmployeePage />} />
-      </Routes>
-    </BrowserRouter>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route
+            path="/employees"
+            element={<EmployeesPage/>}
+          />
+          <Route path="/employees/:id" element={<EmployeePage />} />
+          <Route path="/employees/new" element={<NewEmployeePage />} />
+        </Routes>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

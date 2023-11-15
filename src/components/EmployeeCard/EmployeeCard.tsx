@@ -1,14 +1,11 @@
 import { Link } from "react-router-dom";
 import { EmployeeInfo } from "../../App"
-import { Utils } from "../../services/uils";
 
 export interface EmployeeCardProps { 
     employee: EmployeeInfo;
 }
 const EmployeeCard = ({ employee }: EmployeeCardProps) => {
-    // const date = new Date();
-    // console.log(date.toLocaleDateString);
-    
+    console.log(employee);
   return (
       <div>
           <div>
@@ -18,7 +15,7 @@ const EmployeeCard = ({ employee }: EmployeeCardProps) => {
                   <a href="">Remove</a>
               </div>
           </div>
-          <p>{employee.type} - {(new Date()).getFullYear()-parseInt(employee.startDate.year)}yrs</p>
+          <p>{employee.type} - {(new Date()).getFullYear()-parseInt(employee.startDateYear)}yrs</p>
           <p>{ employee.email}</p>
     </div>
   )

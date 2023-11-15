@@ -12,16 +12,12 @@ export interface FormData {
   phone: string;
   address: string;
   type: string;
-  startDate: {
-    day: string;
-    month: string;
-    year: string;
-  };
-  finishDate: {
-    day: string;
-    month: string;
-    year: string;
-  };
+  startDateDay: string;
+  startDateMonth: string;
+  startDateYear: string;
+  finishDateDay: string;
+  finishDateMonth: string;
+  finishDateYear: string;
   onGoing: string;
   basis: string;
   hoursPerWeek: string;
@@ -50,16 +46,12 @@ const EmployeePage = () => {
       phone: "",
       address: "",
       type: "permanent",
-      startDate: {
-        day: "",
-        month: "",
-        year: "",
-      },
-      finishDate: {
-        day: "",
-        month: "",
-        year: "",
-      },
+      startDateDay: "",
+      startDateMonth: "",
+      startDateYear: "",
+      finishDateDay: "",
+      finishDateMonth: "",
+      finishDateYear: "",
       onGoing: "false",
       basis: "fulltime",
       hoursPerWeek: "",

@@ -1,16 +1,10 @@
-import { useQuery, useQueryClient } from "react-query";
-import { EmployeeInfo } from "../../App";
+import { useQuery} from "react-query";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
 import { Employee } from "../../services/employees-service";
 
-// export interface EmployeesProps {
-//   employees: EmployeeInfo[];
-// }
-
 const EmployeesPage = () => {
   
-  // const queryClient = useQueryClient();
-  const { isLoading,isError, data } = useQuery(["employeesData"], Employee.get);
+  const { isLoading, isError, data, refetch } = useQuery(["employeesData"], Employee.get);
   if (isLoading) {
     return <span>Loading...</span>;
   }
@@ -21,7 +15,7 @@ const EmployeesPage = () => {
   return (
     <div>
       {data?.map((e) => {
-        return <EmployeeCard employee={e} key={e.id} />;
+        return <EmployeeCard employee={e} key={e.id} refetch={ refetch} />;
       })}
     </div>
   );

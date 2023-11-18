@@ -3,8 +3,7 @@ import Header from "./components/Header/Header";
 import EmployeesPage from "./pages/EmployeesPage/EmployeesPage";
 import EmployeePage from "./pages/EmployeePage/EmployeePage";
 import NewEmployeePage from "./pages/NewEmployeePage/NewEmployeePage";
-import { Employee } from "./services/employees-service";
-import { useEffect, useState } from "react";
+
 import { QueryClient,QueryClientProvider,useQuery,useMutation } from "react-query";
 export interface EmployeeInfo {
   id: number;

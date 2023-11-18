@@ -1,13 +1,16 @@
 import { useForm } from "react-hook-form";
 import PersonalDetailsForm from "../PersonalDetailsForm/PersonalDetailsForm";
-import { useEffect } from "react";
-
-const NewEmployeePage = () => {
+import { Employee } from "../../services/employees-service";
+import { FormData } from "../EmployeePage/EmployeePage";
+interface NewEmployeePageProps {
+  handleClose: () => any;
+  refetch: () => any;
+}
+const NewEmployeePage = ({ handleClose,refetch }: NewEmployeePageProps) => {
   const {
     register,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
-    reset,
+    formState: { errors },
   } = useForm({
     defaultValues: {
       firstName: "",
@@ -34,12 +37,13 @@ const NewEmployeePage = () => {
     mode: "all",
   });
 
-  useEffect(() => {
-    reset();
-  }, [isSubmitSuccessful]);
-
-  const formSubmit = () => {
-    console.log("created new employee!");
+  const formSubmit = (data: FormData) => {
+    Employee.createEmployee(data)
+      .then(() => {
+        handleClose();
+        refetch();
+      })
+      .catch((e) => console.error(e));
   };
 
   return (

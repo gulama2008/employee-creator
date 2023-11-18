@@ -46,7 +46,7 @@ function App() {
             element={<EmployeesPage/>}
           />
           <Route path="/employees/:id" element={<EmployeePage />} />
-          <Route path="/employees/new" element={<NewEmployeePage />} />
+          {/* <Route path="/employees/new" element={<NewEmployeePage />} /> */}
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

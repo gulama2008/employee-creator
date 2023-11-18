@@ -14,6 +14,11 @@ export class Employee {
     return data.data;
   }
 
+  public static async createEmployee(data:FormData): Promise<Employee> {
+    const response = await instance.post(`/employees`,data);
+    return response.data;
+  }
+
   public static async deleteEmployeeById(id: number): Promise<boolean> {
     const response = await instance.delete(`/employees/${id}`);
     return response.data;

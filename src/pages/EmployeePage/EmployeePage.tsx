@@ -9,8 +9,8 @@ import Modal from "react-bootstrap/Modal";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { personalInformationSchema } from "../../services/schema";
 import Header from "../../components/Header/Header";
-import back from '../../assets/back-arrow.png'
-import styles from "./EmployeePage.module.scss"
+import back from "../../assets/back-arrow.png";
+import styles from "./EmployeePage.module.scss";
 export interface FormData {
   firstName: string;
   middleName: string;
@@ -43,7 +43,7 @@ const EmployeePage = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm({
     resolver: zodResolver(personalInformationSchema),
     defaultValues: {
@@ -81,9 +81,9 @@ const EmployeePage = () => {
       .catch((e) => console.error(e));
   };
 
-  const handleCancel = () => { 
-    reset(data)
-  }
+  const handleCancel = () => {
+    reset(data);
+  };
 
   return (
     <>

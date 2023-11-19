@@ -1,4 +1,4 @@
-import styles from "./RadioAndCheckBox.module.scss"
+import styles from "./RadioAndCheckBox.module.scss";
 export interface RadioAndCheckBoxProps {
   name: string;
   label: string;

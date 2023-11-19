@@ -1,4 +1,4 @@
-import styles from "./Select.module.scss"
+import styles from "./Select.module.scss";
 export interface SelectProps {
   label: string;
   name: string;

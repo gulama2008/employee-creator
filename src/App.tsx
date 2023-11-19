@@ -1,10 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
 import EmployeesPage from "./pages/EmployeesPage/EmployeesPage";
 import EmployeePage from "./pages/EmployeePage/EmployeePage";
-import NewEmployeePage from "./pages/NewEmployeePage/NewEmployeePage";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { QueryClient,QueryClientProvider,useQuery,useMutation } from "react-query";
+import { QueryClient,QueryClientProvider} from "react-query";
 export interface EmployeeInfo {
   id: number;
   firstName: string;
@@ -28,14 +26,6 @@ export interface EmployeeInfo {
 const queryClient = new QueryClient();
 
 function App() {
-  // const [employees, setEmployees] = useState<any>([]);
-//   useEffect(() => {
-//     const data = Employee.get();
-// console.log(data);
-
-//     setEmployees(data);
-//   }, []);
-
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>

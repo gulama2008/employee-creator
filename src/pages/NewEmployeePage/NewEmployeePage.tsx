@@ -36,7 +36,6 @@ const NewEmployeePage = ({ handleClose, refetch }: NewEmployeePageProps) => {
     },
     mode: "all",
   });
-  console.log(errors);
 
   const formSubmit = (data: FormData) => {
     Employee.createEmployee(data)

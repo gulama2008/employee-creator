@@ -150,7 +150,6 @@ const PersonalDetailsForm = ({
               errors={errors}
             />
           </div>
-
           <RadioAndCheckBox
             name="onGoing"
             label="On going"
@@ -193,7 +192,7 @@ const PersonalDetailsForm = ({
       </div>
 
       <div className={styles.btn_container}>
-        <Button variant="primary" className={styles.btn}>
+        <Button variant="primary" className={styles.btn} type="submit">
           Save
         </Button>
         <Button

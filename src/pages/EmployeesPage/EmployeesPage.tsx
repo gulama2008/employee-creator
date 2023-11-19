@@ -4,10 +4,9 @@ import { Employee } from "../../services/employees-service";
 import { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import NewEmployeePage from "../NewEmployeePage/NewEmployeePage";
-import styles from './EmployeesPage.module.scss'
+import styles from "./EmployeesPage.module.scss";
 import Header from "../../components/Header/Header";
 import Button from "react-bootstrap/Button";
-
 
 const EmployeesPage = () => {
   const [show, setShow] = useState(false);
@@ -45,7 +44,7 @@ const EmployeesPage = () => {
         {data?.map((e) => {
           return <EmployeeCard employee={e} key={e.id} refetch={refetch} />;
         })}
-        <Modal show={show} onHide={handleClose} className={styles.modal } >
+        <Modal show={show} onHide={handleClose} className={styles.modal}>
           <Modal.Header closeButton>
             <Modal.Title>Create Employee</Modal.Title>
           </Modal.Header>

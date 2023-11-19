@@ -14,8 +14,8 @@ export class Employee {
     return data.data;
   }
 
-  public static async createEmployee(data:FormData): Promise<Employee> {
-    const response = await instance.post(`/employees`,data);
+  public static async createEmployee(data: FormData): Promise<Employee> {
+    const response = await instance.post(`/employees`, data);
     return response.data;
   }
 

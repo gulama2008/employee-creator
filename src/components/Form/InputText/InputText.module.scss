@@ -1,0 +1,31 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.label{
+    color: #4b4f58;
+}
+.input{
+    height: 40px;
+    width: 200px;
+    border: 2px solid #8e929a;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.input_address{
+    height: 40px;
+    width: 300px;
+    border: 2px solid #8e929a;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.input_date{
+    height: 40px;
+    width: 80px;
+    border: 2px solid #8e929a;
+    border-radius: 5px;
+    padding: 10px;
+}

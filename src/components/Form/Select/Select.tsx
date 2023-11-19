@@ -1,3 +1,4 @@
+import styles from "./Select.module.scss"
 export interface SelectProps {
   label: string;
   name: string;
@@ -17,9 +18,9 @@ const Select = ({
   errors,
 }: SelectProps) => {
   return (
-    <div>
+    <div className={styles.container}>
       <label htmlFor={name}>{label}</label>
-      <select id={id} {...register(name)}>
+      <select id={id} {...register(name)} className={styles.select}>
         {values.map((value, index) => {
           return <option value={value}>{text[index]}</option>;
         })}

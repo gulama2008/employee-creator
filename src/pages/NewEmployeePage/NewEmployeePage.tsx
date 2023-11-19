@@ -1,17 +1,21 @@
 import { useForm } from "react-hook-form";
-import PersonalDetailsForm from "../PersonalDetailsForm/PersonalDetailsForm";
+import PersonalDetailsForm from "../../components/PersonalDetailsForm/PersonalDetailsForm";
 import { Employee } from "../../services/employees-service";
 import { FormData } from "../EmployeePage/EmployeePage";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { personalInformationSchema } from "../../services/schema";
 interface NewEmployeePageProps {
   handleClose: () => any;
   refetch: () => any;
 }
-const NewEmployeePage = ({ handleClose,refetch }: NewEmployeePageProps) => {
+
+const NewEmployeePage = ({ handleClose, refetch }: NewEmployeePageProps) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
+    resolver: zodResolver(personalInformationSchema),
     defaultValues: {
       firstName: "",
       middleName: "",
@@ -20,22 +24,19 @@ const NewEmployeePage = ({ handleClose,refetch }: NewEmployeePageProps) => {
       phone: "",
       address: "",
       type: "",
-      startDate: {
-        day: "",
-        month: "",
-        year: "",
-      },
-      finishDate: {
-        day: "",
-        month: "",
-        year: "",
-      },
+      startDateDay: "",
+      startDateMonth: "",
+      startDateYear: "",
+      finishDateDay: "",
+      finishDateMonth: "",
+      finishDateYear: "",
       onGoing: "",
       basis: "",
       hoursPerWeek: "",
     },
     mode: "all",
   });
+  console.log(errors);
 
   const formSubmit = (data: FormData) => {
     Employee.createEmployee(data)
@@ -52,6 +53,7 @@ const NewEmployeePage = ({ handleClose,refetch }: NewEmployeePageProps) => {
       errors={errors}
       handleSubmit={handleSubmit}
       formSubmit={formSubmit}
+      handleCancel={handleClose}
     />
   );
 };

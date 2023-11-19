@@ -1,0 +1,26 @@
+.container{
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-bottom: 2px solid #ededed;
+
+}
+
+.name{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.link_container{
+    display: flex;
+    gap: 15px;
+    
+}
+
+.link{
+    color: #516479;
+    text-decoration: underline;
+    cursor: pointer;
+}

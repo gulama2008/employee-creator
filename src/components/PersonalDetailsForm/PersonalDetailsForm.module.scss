@@ -1,0 +1,45 @@
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+h4{
+    font-weight: 700;
+}
+
+h6{
+    font-weight: 600;
+    color: #4b4f58;
+}
+
+.personal_info{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.contact{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.status{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.start_date{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn{
+    width: 150px;
+    height: 50px; 
+    margin-right: 20px;
+}

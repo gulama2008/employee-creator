@@ -3,8 +3,9 @@ import { EmployeeInfo } from "../../App";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useState } from "react";
-import "bootstrap/dist/css/bootstrap.min.css";
+// import "bootstrap/dist/css/bootstrap.min.css";
 import { Employee } from "../../services/employees-service";
+import styles from './EmployeeCard.module.scss'
 export interface EmployeeCardProps {
   employee: EmployeeInfo;
   refetch: () => any;
@@ -31,16 +32,19 @@ const EmployeeCard = ({ employee, refetch }: EmployeeCardProps) => {
       .catch((e) => console.error(e));
   };
   return (
-    <div>
-      <div>
+    <div className={styles.container}>
+      <div className={styles.name}>
         <p>
           {employee.firstName} {employee.lastName}
         </p>
-        <div>
+        <div className={styles.link_container}>
           <Link to={`${employee.id}`}>
-            <button>Edit</button>
+            <p className={styles.link}>Edit</p>
           </Link>
-          <button onClick={handleShow}>Remove</button>
+          <p>|</p>
+          <p onClick={handleShow} className={styles.link}>
+            Remove
+          </p>
         </div>
       </div>
       <p>

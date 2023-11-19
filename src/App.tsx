@@ -3,7 +3,7 @@ import Header from "./components/Header/Header";
 import EmployeesPage from "./pages/EmployeesPage/EmployeesPage";
 import EmployeePage from "./pages/EmployeePage/EmployeePage";
 import NewEmployeePage from "./pages/NewEmployeePage/NewEmployeePage";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import { QueryClient,QueryClientProvider,useQuery,useMutation } from "react-query";
 export interface EmployeeInfo {
   id: number;
@@ -39,14 +39,12 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
-        <Header />
         <Routes>
           <Route
             path="/employees"
             element={<EmployeesPage/>}
           />
           <Route path="/employees/:id" element={<EmployeePage />} />
-          {/* <Route path="/employees/new" element={<NewEmployeePage />} /> */}
         </Routes>
       </BrowserRouter>
     </QueryClientProvider>

@@ -1,27 +1,24 @@
-
-.header_text{
-    font-size: 40px;
-    line-height: 200px;
-margin-left: 80px;
-font-weight:bold;
+.header_text {
+  font-size: 40px;
+  line-height: 200px;
+  margin-left: 80px;
+  font-weight: bold;
 }
 
-.main{
-    margin-left: 200px;
-    margin-right: 200px;
+.main {
+  margin-left: 200px;
+  margin-right: 200px;
 }
 
-.add{
-    height: 150px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #ededed;
-
+.add {
+  height: 150px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #ededed;
 }
 
-.add_btn{
-    width: 200px;
-    height: 50px;
-    
+.add_btn {
+  width: 200px;
+  height: 50px;
 }

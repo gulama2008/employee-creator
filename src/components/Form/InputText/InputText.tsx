@@ -1,15 +1,15 @@
-import styles from "./InputText.module.scss"
-export interface TextInputProps{ 
-    name: string;
-    label: string;
-    id: string;
-    register: any;
-    errors: any;
+import styles from "./InputText.module.scss";
+export interface TextInputProps {
+  name: string;
+  label: string;
+  id: string;
+  register: any;
+  errors: any;
 }
 
 const InputText = ({ name, label, id, register, errors }: TextInputProps) => {
   console.log(errors);
-  
+
   return (
     <div className={styles.container}>
       <label htmlFor={name} className={styles.label}>
@@ -22,12 +22,18 @@ const InputText = ({ name, label, id, register, errors }: TextInputProps) => {
         className={
           name === "address"
             ? styles.input_address
-            : name === "startDateDay" || name === "startDateYear"?styles.input_date:styles.input
+            : name === "startDateDay" ||
+              name === "startDateYear" ||
+              name === "finishDateDay" ||
+              name === "finishDateYear" ||
+              name === "hoursPerWeek"
+            ? styles.input_date
+            : styles.input
         }
       />
-      {errors[name] && <p>{errors[name].message}</p>}
+      {errors[name] && <p className={styles.error}>{errors[name].message}</p>}
     </div>
   );
 };
 
-export default InputText
+export default InputText;

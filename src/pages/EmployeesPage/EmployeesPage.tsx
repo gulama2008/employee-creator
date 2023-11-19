@@ -45,7 +45,7 @@ const EmployeesPage = () => {
         {data?.map((e) => {
           return <EmployeeCard employee={e} key={e.id} refetch={refetch} />;
         })}
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} className={styles.modal } >
           <Modal.Header closeButton>
             <Modal.Title>Create Employee</Modal.Title>
           </Modal.Header>

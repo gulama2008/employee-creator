@@ -25,7 +25,7 @@ const Select = ({
           return <option value={value}>{text[index]}</option>;
         })}
       </select>
-      {errors.name && <p>{errors.name.message}</p>}
+      {errors.name && <p className={styles.error}>{errors.name.message}</p>}
     </div>
   );
 };

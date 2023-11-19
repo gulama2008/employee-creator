@@ -1,3 +1,4 @@
+import styles from "./RadioAndCheckBox.module.scss"
 export interface RadioAndCheckBoxProps {
   name: string;
   label: string;
@@ -18,9 +19,15 @@ const RadioAndCheckBox = ({
 }: RadioAndCheckBoxProps) => {
   return (
     <div>
-      <input id={id} type={ type} {...register(name)} value={value} />
+      <input
+        id={id}
+        type={type}
+        {...register(name)}
+        value={value}
+        className={styles.input}
+      />
       <label htmlFor={name}>{label}</label>
-      {errors.name && <p>{errors.name.message}</p>}
+      {errors.name && <p className={styles.error}>{errors.name.message}</p>}
     </div>
   );
 };

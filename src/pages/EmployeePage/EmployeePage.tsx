@@ -88,30 +88,37 @@ const EmployeePage = () => {
   return (
     <>
       <Header>
-        <Link to="/employees"><img src={back} className={styles.back_icon } />Back</Link>
-        <p>Employee details</p>
+        <div className={styles.header}>
+          <Link to="/employees">
+            <img src={back} className={styles.back_icon} />
+            Back
+          </Link>
+          <p className={styles.header_text}>Employee details</p>
+        </div>
       </Header>
-      <PersonalDetailsForm
-        register={register}
-        errors={errors}
-        handleSubmit={handleSubmit}
-        formSubmit={formSubmit}
-        handleCancel={handleCancel}
-      />
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Update Employee</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          Personal information of employee {data?.firstName} {data?.lastName}{" "}
-          has been updated successfully!
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="primary" onClick={handleClose}>
-            Close
-          </Button>
-        </Modal.Footer>
-      </Modal>
+      <div className={styles.main}>
+        <PersonalDetailsForm
+          register={register}
+          errors={errors}
+          handleSubmit={handleSubmit}
+          formSubmit={formSubmit}
+          handleCancel={handleCancel}
+        />
+        <Modal show={show} onHide={handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>Update Employee</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            Personal information of employee {data?.firstName} {data?.lastName}{" "}
+            has been updated successfully!
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="primary" onClick={handleClose}>
+              Close
+            </Button>
+          </Modal.Footer>
+        </Modal>
+      </div>
     </>
   );
 };

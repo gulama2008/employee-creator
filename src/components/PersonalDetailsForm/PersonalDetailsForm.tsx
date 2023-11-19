@@ -96,7 +96,7 @@ const PersonalDetailsForm = ({
         </div>
         <div>
           <h6>Start date</h6>
-          <div className={styles.start_date}>
+          <div className={styles.date}>
             <InputText
               name="startDateDay"
               label="Day"
@@ -125,29 +125,32 @@ const PersonalDetailsForm = ({
 
         <div>
           <h6>Finish date</h6>
-          <InputText
-            name="finishDateDay"
-            label="Day"
-            id="finishDay"
-            register={register}
-            errors={errors}
-          />
-          <Select
-            label="Month"
-            name="finishDateMonth"
-            values={months}
-            text={monthsText}
-            id="finishMonth"
-            register={register}
-            errors={errors}
-          />
-          <InputText
-            name="finishDateYear"
-            label="Year"
-            id="finishYear"
-            register={register}
-            errors={errors}
-          />
+          <div className={styles.date}>
+            <InputText
+              name="finishDateDay"
+              label="Day"
+              id="finishDay"
+              register={register}
+              errors={errors}
+            />
+            <Select
+              label="Month"
+              name="finishDateMonth"
+              values={months}
+              text={monthsText}
+              id="finishMonth"
+              register={register}
+              errors={errors}
+            />
+            <InputText
+              name="finishDateYear"
+              label="Year"
+              id="finishYear"
+              register={register}
+              errors={errors}
+            />
+          </div>
+
           <RadioAndCheckBox
             name="onGoing"
             label="On going"
